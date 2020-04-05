@@ -1,9 +1,9 @@
-﻿using System.Net;
-using System.Threading.Tasks;
-using DeviceManager.Api.Constants;
+﻿using DeviceManager.Api.Constants;
 using DeviceManager.Api.Model;
 using DeviceManager.Api.UnitTests.Builders;
 using FluentAssertions;
+using System.Net;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace DeviceManager.Api.UnitTests.Api
@@ -21,7 +21,7 @@ namespace DeviceManager.Api.UnitTests.Api
             var devicesApiBuilder = await new DevicesApiBuilder()
                 .WithClientCredentials();
 
-            devicesApiBuilder = await devicesApiBuilder.QueryWith(page: 1, pageCount: 5, version:"1.0")
+            devicesApiBuilder = await devicesApiBuilder.QueryWith(page: 1, pageCount: 5, version: "1.0")
                 //.WithTenantId("b0ed668d-7ef2-4a23-a333-94ad278f45d7")
                 .WithTenantId(DefaultConstants.DefaultTenantGuid)
                 .Get();
@@ -92,7 +92,7 @@ namespace DeviceManager.Api.UnitTests.Api
             devicesApiBuilder.HttpResponseMessage.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
         }
 #endif
-        [Fact (
+        [Fact(
             Skip = "GetDeviceByTitle by title is not implemented"
             )]
         public async Task GetDeviceByTitle_WithTenantId_ReturnsOkResult()
@@ -110,7 +110,7 @@ namespace DeviceManager.Api.UnitTests.Api
                 .Should().Be(HttpStatusCode.InternalServerError);
         }
 
-        [Fact ( 
+        [Fact(
             Skip = "The tests will add a new item to real DB, thus should be run manually"
             )]
         public async Task PostDevice_WithDeviceModel_ReturnsOkResult()
@@ -122,7 +122,8 @@ namespace DeviceManager.Api.UnitTests.Api
             devicesApiBuilder = await devicesApiBuilder.DefaultQuery(version: "1.0")
                 .WithDeviceViewModelData(new DeviceViewModel()
                 {
-                    DeviceCode = "DFGRRO12", Title = "RO Controller"
+                    DeviceCode = "DFGRRO12",
+                    Title = "RO Controller"
                 })
                 .WithTenantId(DefaultConstants.DefaultTenantGuid)
                 .Post();

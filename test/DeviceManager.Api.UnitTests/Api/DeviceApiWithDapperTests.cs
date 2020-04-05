@@ -45,9 +45,10 @@ namespace DeviceManager.Api.UnitTests.Api
             devicesApiBuilder.HttpResponseMessage.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
         }
 #endif
-        [Fact(
-            Skip = "The tests will add a new item to real DB, thus should be run manually"
-            )]
+        //[Fact(
+        //    Skip = "The tests will add a new item to real DB, thus should be run manually"
+        //    )]
+        [Fact]
         public async Task PostDevice_WithDeviceModel_ReturnsOkResult()
         {
             // Arrange and Act
@@ -57,7 +58,7 @@ namespace DeviceManager.Api.UnitTests.Api
             devicesApiBuilder = await devicesApiBuilder.DefaultDapperQuery(version: "1.0")
                 .WithDeviceViewModelData(new DeviceViewModel()
                 {
-                    DeviceCode = "DAPPER_DFGRRO12",
+                    DeviceCode = "TestDevice",
                     Title = "RO Controller"
                 })
                 .WithTenantId(DefaultConstants.DefaultTenantGuid)

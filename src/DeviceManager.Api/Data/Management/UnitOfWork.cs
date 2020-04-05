@@ -6,7 +6,7 @@ namespace DeviceManager.Api.Data.Management
     /// <summary>
     /// The Entity Framework implementation of IUnitOfWork
     /// </summary>
-    public sealed class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         /// <summary>
         /// The DbContext

@@ -49,10 +49,11 @@ namespace DeviceManager.Api.UnitTests.Api.Server
                     .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", optional: true)
                     .AddEnvironmentVariables();
 
-                }).UseStartup<Startup>());
-
-
+                })
+                .UseStartup<TestStartup>());
             Client = server.CreateClient();
         }
+
+
     }
 }

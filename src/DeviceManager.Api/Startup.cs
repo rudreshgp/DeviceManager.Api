@@ -39,7 +39,7 @@ namespace DeviceManager.Api
         /// Configures the services.
         /// </summary>
         /// <param name="services">The services.</param>
-        public void ConfigureServices(IServiceCollection services)
+        public virtual void ConfigureServices(IServiceCollection services)
         {
             ConfigurationOptions.ConfigureService(services, Configuration);
 
